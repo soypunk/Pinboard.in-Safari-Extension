@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PinSafari</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function performCommand(event) 
+{
+  if (event.command == 'pinsafari') {
+    var itemUrl = event.target.browserWindow.activeTab.url;
+    var itemTitle = event.target.browserWindow.activeTab.title; 
+
+    event.target.browserWindow.activeTab.url=
+                        'http://pinboard.in/add?next=same&url='+encodeURIComponent(itemUrl)+
+                        //'&description='+encodeURIComponent(selection)+
+                        '&title='+encodeURIComponent(itemTitle);
+  }
+  
+}
+
+function validateCommand(Event)
+{
+  if (event.command === 'pinsafari') {
+    event.target.disabled = !event.target.browserWindow.activeTab.url;
+  }
+}
+
+safari.application.addEventListener('command', performCommand, false);
+safari.application.addEventListener('validate', validateCommand, false);
+
+</script>
+</body>
+</html>

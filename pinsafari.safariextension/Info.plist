@@ -16,15 +16,19 @@
 	<string>1</string>
 	<key>Chrome</key>
 	<dict>
-	  <key>Global Page</key>
+		<key>Global Page</key>
 		<string>pin.html</string>
 		<key>Toolbar Items</key>
 		<array>
 			<dict>
+				<key>Command</key>
+				<string>pinsafari</string>
 				<key>Identifier</key>
 				<string>pbSend</string>
 				<key>Image</key>
 				<string>pin.png</string>
+				<key>Include By Default</key>
+				<true/>
 				<key>Label</key>
 				<string>Save to Pinboard</string>
 				<key>Palette Label</key>
