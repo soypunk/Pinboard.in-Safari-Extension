@@ -2,6 +2,6 @@ h1. PinSafari Extension
 
 A pinboard.in extension for Safari. Just the basics for now--click the toolbar button to add the current page as a bookmark in pinboard.in.
 
-h1. Upcoming features
+h2. Upcoming features
 
 I'm planning to make it look a bit prettier, firstly. I'd like to add a pretty menu that pops up rather than redirecting to the ugly, unstyled pinboard.in page to add the bookmark. Also, hope to implement growl notifications once I dive into this extensions API a bit further.
