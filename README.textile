@@ -4,7 +4,7 @@ A pinboard.in extension for Safari. Just the basics for now--click the toolbar b
 
 h2. Download
 
-http://github.com/downloads/theunraveler/Pinboard.in-Safari-Extension/pinsafari.safariextz
+"http://github.com/downloads/theunraveler/Pinboard.in-Safari-Extension/pinsafari.safariextz":http://github.com/downloads/theunraveler/Pinboard.in-Safari-Extension/pinsafari.safariextz
 
 h2. Upcoming features
 
