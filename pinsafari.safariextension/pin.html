@@ -23,10 +23,10 @@ function performCommand(event)
   	code += '<div id="ws-popup">';
   	code += '<div class="text">';
   	code += '<h2><img src="star.png" />Add to Pinboard</h2>';
+  	code += '<div id="ws-form"></div>';
   	code += pbHtml.getElementsByTagName('form');
   	code += '</div>';
   	code += '</div>';
-  	console.log(pbHtml);
   	
   	safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("save", code);
   	
