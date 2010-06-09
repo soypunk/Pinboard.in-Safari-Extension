@@ -2,51 +2,40 @@
 <html>
 <head>
 <title>PinSafari</title>
-</head>
-<body>
 
 <script type="text/javascript">
 function performCommand(event) 
 {
   if (event.command == 'pinsafari') {
 
-    /*var itemUrl = event.target.browserWindow.activeTab.url;
+    var itemUrl = event.target.browserWindow.activeTab.url;
     //var selection = event.target.browserWindow.activeTab.getSelection();
     var itemTitle = event.target.browserWindow.activeTab.title; 
 
-    event.target.browserWindow.activeTab.url=
-                        'http://pinboard.in/add?next=same&url='+encodeURIComponent(itemUrl)+
-                        //'&description='+encodeURIComponent(selection)+
-                        '&title='+encodeURIComponent(itemTitle);*/
-                        code = '';
-                      	code = code + '<style type="text/css">';
-                      	code = code + '@-webkit-keyframes fade {';
-                      	code = code + '0% { -webkit-box-shadow:0 0 15px #ddd; }';
-                      	code = code + '50% { -webkit-box-shadow:0 0 30px #333;}';
-                      	code = code + '100% { -webkit-box-shadow:0 0 15px #ddd;}';
-                      	code = code + '}';
-                      	code = code + '@-webkit-keyframes orangePulse {';
-                      	code = code + 'from { -webkit-box-shadow: 0 0 9px #333; }';
-                      	code = code + '50% { -webkit-box-shadow: 0 0 18px #ff5c00; }';
-                      	code = code + 'to { -webkit-box-shadow: 0 0 9px #333; }';
-                      	code = code + '}';
-                      	code = code + '#ws-popup { position: fixed; right: 10px; top: 10px; background-color: rgba( 0,0,0, 0.9); border: 1px solid black; -webkit-border-radius: 5px; width: 450px; color: white !important; font-family: "Arial", sans-serif; font-size: 12px; z-index: 999999; text-align: center; -webkit-animation-name: fade; -webkit-animation-duration: 2s; -webkit-animation-iteration-count: infinite; line-height: 1.5em;  min-height: 160px; }';
-                      	code = code + '#ws-popup img { width: 200px; border: 1px solid #ccc; float: left; margin: 10px; }';
-                      	code = code + '#ws-popup div.text { width: 200px; float: right; margin: 20px 10px 10px 10px; }';
-                      	code = code + '#ws-popup h3 { font-size: 14px; margin: 5px 0 10px 0; color: white !important; line-height: 1.5em; padding: 0; }';
-                      	code = code + '#ws-popup p { color: white !important; line-height: 1.5em; padding: 0; margin: 0; }';
-                      	code = code + '#ws-popup a.closebutton { display: inline-block; outline: none; cursor: pointer; text-align: center; text-decoration: none; padding: .25em 1em .25em; text-shadow: 0 1px 1px rgba(0,0,0,.3); -webkit-border-radius: .5em; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); color: #fef4e9; border: solid 1px #da7c0c; background: #f78d1d; background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20)); }';
-                      	code = code + '</style>';
-
-                      	code = code + '<div id="ws-popup">';
-                      	code = code + '<div class="text">';
-                      	code = code + '<h3>Add to Pinboard</h3>';
-                      	code = code + '<p><input type="text" name="url" value="' + '"/><br/>';
-                      	code = code + '<a href="javascript:void(0);" id="ws-close-button" class="closebutton">Cancel</a></p>';
-                      	code = code + '</div>';
-                      	code = code + '</div>';
-                      	
-                      	safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("save", code);
+    code = '';
+  	code += '<style type="text/css">';
+  	code += '#ws-popup { position: fixed; right: 10px; top: 10px; background-color: rgba( 0,0,0, 0.9); border: 1px solid black; -webkit-border-radius: 5px; width: 300px; color: white !important; font-family: "Arial", sans-serif; font-size: 12px; z-index: 999999; line-height: 1.5em;  min-height: 160px; }';
+  	code += '#ws-popup div.text { width: 100%; margin: 20px 10px; }';
+  	code += '#ws-popup h3 { font-size: 14px; margin: 5px 0 10px 0; color: white !important; line-height: 1.5em; padding: 0; }';
+  	code += '#ws-popup p { color: white !important; line-height: 1.5em; padding: 0; margin: 0; }';
+  	code += '#ws-popup a.closebutton { display: inline-block; outline: none; cursor: pointer; text-align: center; text-decoration: none; padding: .25em 1em .25em; text-shadow: 0 1px 1px rgba(0,0,0,.3); -webkit-border-radius: .5em; -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2); color: #fef4e9; border: solid 1px #da7c0c; background: #f78d1d; }';
+  	code += '</style>';
+  	code += '<div id="ws-popup">';
+  	code += '<div class="text">';
+  	code += '<h2><img src="star.png" />Add to Pinboard</h2>';
+  	code += '<p><form>';
+  	code += '<label for="pinboardTitle">Title</label>';
+  	code += '<input id="pinboardTitle" type="text" name="title" size="40" value="'+itemTitle+'" /><br />';
+  	code += '<label for="pinboardURL">URL</label>';
+  	code += '<input id="pinboardURL" type="text" name="url" size="40" value="'+itemUrl+'" /><br/>';
+  	code += '<input type="submit" name="submit" value="Save" />';
+  	code += '<a href="javascript:void(0);" id="ws-close-button" class="closebutton">Cancel</a></form></p>';
+  	code += '</div>';
+  	code += '</div>';
+  	
+  	safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("save", code);
+  	
+  	event.target.disabled = true;
   }
   
 }
@@ -62,5 +51,7 @@ safari.application.addEventListener('command', performCommand, false);
 safari.application.addEventListener('validate', validateCommand, false);
 
 </script>
-</body>
+
+</head>
+<body></body>
 </html>
