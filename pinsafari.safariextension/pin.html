@@ -11,7 +11,7 @@ function performCommand(event)
     var itemUrl = event.target.browserWindow.activeTab.url;
     //var selection = event.target.browserWindow.activeTab.getSelection();
     var itemTitle = event.target.browserWindow.activeTab.title; 
-
+    var pbHtml = document.open('http://pinboard.in/add?next=same&url=&description=&title=');
     code = '';
   	code += '<style type="text/css">';
   	code += '#ws-popup { position: fixed; right: 10px; top: 10px; background-color: rgba( 0,0,0, 0.9); border: 1px solid black; -webkit-border-radius: 5px; width: 300px; color: white !important; font-family: "Arial", sans-serif; font-size: 12px; z-index: 999999; line-height: 1.5em;  min-height: 160px; }';
@@ -23,15 +23,10 @@ function performCommand(event)
   	code += '<div id="ws-popup">';
   	code += '<div class="text">';
   	code += '<h2><img src="star.png" />Add to Pinboard</h2>';
-  	code += '<p><form>';
-  	code += '<label for="pinboardTitle">Title</label>';
-  	code += '<input id="pinboardTitle" type="text" name="title" size="40" value="'+itemTitle+'" /><br />';
-  	code += '<label for="pinboardURL">URL</label>';
-  	code += '<input id="pinboardURL" type="text" name="url" size="40" value="'+itemUrl+'" /><br/>';
-  	code += '<input type="submit" name="submit" value="Save" />';
-  	code += '<a href="javascript:void(0);" id="ws-close-button" class="closebutton">Cancel</a></form></p>';
+  	code += pbHtml.getElementsByTagName('form');
   	code += '</div>';
   	code += '</div>';
+  	console.log(pbHtml);
   	
   	safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("save", code);
   	
