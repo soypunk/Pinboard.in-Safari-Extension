@@ -9,7 +9,9 @@
 function performCommand(event) 
 {
   if (event.command == 'pinsafari') {
+    console.log(event);
     var itemUrl = event.target.browserWindow.activeTab.url;
+    //var selection = event.target.browserWindow.activeTab.getSelection();
     var itemTitle = event.target.browserWindow.activeTab.title; 
 
     event.target.browserWindow.activeTab.url=
