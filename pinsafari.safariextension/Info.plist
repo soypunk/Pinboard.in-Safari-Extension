@@ -55,6 +55,8 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://github.com/theunraveler/Pinboard.in-Safari-Extension/raw/master/latest.plist</string>
 	<key>Website</key>
 	<string>http://iamtheunraveler.com</string>
 </dict>
